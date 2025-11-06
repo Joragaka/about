@@ -20,16 +20,16 @@ const clearBtn = document.getElementById('clearBtn');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const data = new FormData(form);
-  const name = data.get('name').trim();
-  const email = data.get('email').trim();
-  const message = data.get('message').trim();
+  const name = (data.get('name') || '').trim();
+  const email = (data.get('email') || '').trim();
+  const message = (data.get('message') || '').trim();
 
   if (!name || !email || !message) {
     status.textContent = 'Пожалуйста, заполните все поля.';
     status.style.color = 'crimson';
     return;
   }
-  // Здесь можно отправить на сервер через fetch, сейчас имитация:
+  // Сейчас имитация отправки (замените на реальный endpoint при необходимости)
   status.textContent = 'Отправка...';
   status.style.color = '';
   setTimeout(() => {
